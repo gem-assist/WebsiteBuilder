@@ -18,7 +18,7 @@ export default function Newsletter() {
       formData.append("_captcha", "false");
       formData.append("_subject", "Newsletter Subscription - GEM Platform");
 
-      const response = await fetch("https://formsubmit.co/gemfirm@gmail.com", {
+      const response = await fetch("https://formsubmit.co/Channel-Group@gemcybersecurityassist.com", {
         method: "POST",
         body: formData,
       });
