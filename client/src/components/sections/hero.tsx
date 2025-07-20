@@ -28,7 +28,7 @@ export default function Hero() {
             Advanced cybersecurity automation, professional asset recovery, and strategic financial growth solutions for the digital age.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
             <Button className="cyan-gradient text-cyber-dark px-8 py-4 font-semibold hover:scale-105 transition-all animate-pulse-glow">
               <Rocket className="mr-2 h-5 w-5" />
               Get Started
@@ -37,6 +37,22 @@ export default function Hero() {
               <Play className="mr-2 h-5 w-5" />
               Watch Demo
             </Button>
+          </div>
+          
+          <div className="mb-12">
+            <p className="text-cyber-gray mb-4">Join our community for updates and support:</p>
+            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+              <Button asChild variant="outline" className="border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10">
+                <a href="https://t.me/+CyberWealthSecure" target="_blank" rel="noopener noreferrer">
+                  Join CyberWealth Channel
+                </a>
+              </Button>
+              <Button asChild variant="outline" className="border border-cyan-500/50 text-cyan-400 hover:bg-cyan-500/10">
+                <a href="https://t.me/joinchat/wellfoudwellnessassist" target="_blank" rel="noopener noreferrer">
+                  Join Wellness Group
+                </a>
+              </Button>
+            </div>
           </div>
           
           {/* Stats Counter */}
