@@ -58,9 +58,11 @@ The application follows a monorepo structure with a clear separation between cli
 - **UI state**: Toast notifications and loading states
 
 ### Database Layer
-- **Drizzle ORM** configured for PostgreSQL with schema definitions
-- **User schema** defined with basic authentication fields
-- **MemStorage** implementation for development/testing without database
+- **PostgreSQL Database** fully integrated and operational via Neon Database
+- **Drizzle ORM** configured for PostgreSQL with comprehensive schema definitions
+- **Database Storage** implementation replacing MemStorage for production use
+- **Schema includes**: Users, Contacts, Newsletters with proper relations and timestamps
+- **API endpoints** for contact form submissions and newsletter subscriptions with database persistence
 
 ## External Dependencies
 
