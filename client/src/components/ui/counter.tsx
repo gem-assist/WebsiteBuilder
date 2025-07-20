@@ -1,52 +1,37 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
 interface CounterProps {
   end: number;
-  duration?: number;
   suffix?: string;
-  prefix?: string;
+  duration?: number;
 }
 
-export default function Counter({ end, duration = 2000, suffix = "", prefix = "" }: CounterProps) {
+export default function Counter({ end, suffix = "", duration = 2000 }: CounterProps) {
   const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          
-          const increment = end / (duration / 16);
-          let current = 0;
-          
-          const timer = setInterval(() => {
-            current += increment;
-            if (current >= end) {
-              setCount(end);
-              clearInterval(timer);
-            } else {
-              setCount(Math.floor(current));
-            }
-          }, 16);
-          
-          return () => clearInterval(timer);
-        }
-      },
-      { threshold: 0.1 }
-    );
+    let startTime: number;
+    let animationFrame: number;
 
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+      
+      setCount(Math.floor(progress * end));
+      
+      if (progress < 1) {
+        animationFrame = requestAnimationFrame(animate);
+      }
+    };
 
-    return () => observer.disconnect();
-  }, [end, duration, hasStarted]);
+    animationFrame = requestAnimationFrame(animate);
 
-  return (
-    <span ref={elementRef}>
-      {prefix}{count}{suffix}
-    </span>
-  );
+    return () => {
+      if (animationFrame) {
+        cancelAnimationFrame(animationFrame);
+      }
+    };
+  }, [end, duration]);
+
+  return <span>{count}{suffix}</span>;
 }
