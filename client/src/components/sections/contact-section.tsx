@@ -89,31 +89,23 @@ export default function ContactSection() {
                     <MessageCircle className="h-6 w-6 text-cyber-dark" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-white">Telegram Support</h4>
+                    <h4 className="font-semibold text-white">Join Our Telegram</h4>
                     <div className="space-y-1">
                       <a 
-                        href="https://t.me/gemCybersecurity_bot"
+                        href="https://t.me/+CyberWealthSecure"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-cyber-cyan hover:text-cyan-400 transition-colors block"
                       >
-                        @gemCybersecurity_bot
+                        🔗 Join CyberWealthSecure Channel
                       </a>
                       <a 
-                        href="https://t.me/CyberWealthSecure"
+                        href="https://t.me/joinchat/wellfoudwellnessassist"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-cyber-cyan hover:text-cyan-400 transition-colors block"
                       >
-                        CyberWealthSecure Channel
-                      </a>
-                      <a 
-                        href="https://t.me/wellfoudwellnessassist/1"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-cyber-cyan hover:text-cyan-400 transition-colors block"
-                      >
-                        Wellness Assist
+                        🔗 Join Wellness Assist Group
                       </a>
                     </div>
                   </div>
