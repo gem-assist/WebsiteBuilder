@@ -19,7 +19,7 @@ export default function ContactSection() {
     try {
       const formData = new FormData(e.currentTarget);
       
-      const response = await fetch("https://formsubmit.co/gemfirm@gmail.com", {
+      const response = await fetch("https://formsubmit.co/Channel-Group@gemcybersecurityassist.com", {
         method: "POST",
         body: formData,
       });

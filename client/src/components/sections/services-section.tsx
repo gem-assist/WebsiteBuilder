@@ -55,11 +55,18 @@ export default function ServicesSection() {
                     ))}
                   </ul>
                   
-                  <Button asChild className="w-full bg-transparent border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-dark transition-all">
-                    <a href="/services">
-                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                    </a>
-                  </Button>
+                  <div className="space-y-3">
+                    <Button asChild className="w-full bg-transparent border border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-dark transition-all">
+                      <a href="/services">
+                        Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                      </a>
+                    </Button>
+                    <Button asChild className="w-full cyan-gradient text-cyber-dark font-semibold hover:scale-105 transition-transform">
+                      <a href="/pricing">
+                        View Pricing
+                      </a>
+                    </Button>
+                  </div>
                 </CardContent>
               </Card>
             );
