@@ -67,12 +67,20 @@ export default function ContactSection() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-white">Email</h4>
-                    <a 
-                      href="mailto:gemfirm@gmail.com"
-                      className="text-cyber-cyan hover:text-cyan-400 transition-colors"
-                    >
-                      gemfirm@gmail.com
-                    </a>
+                    <div className="space-y-1">
+                      <a 
+                        href="mailto:gemfirm@gmail.com"
+                        className="text-cyber-cyan hover:text-cyan-400 transition-colors block"
+                      >
+                        gemfirm@gmail.com
+                      </a>
+                      <a 
+                        href="mailto:Channel-Group@gemcybersecurityassist.com"
+                        className="text-cyber-cyan hover:text-cyan-400 transition-colors block"
+                      >
+                        Channel-Group@gemcybersecurityassist.com
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
