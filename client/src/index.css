@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(20, 14.3%, 4.1%);
+  --muted: hsl(60, 4.8%, 95.9%);
+  --muted-foreground: hsl(25, 5.3%, 44.7%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(20, 14.3%, 4.1%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(20, 14.3%, 4.1%);
+  --border: hsl(20, 5.9%, 90%);
+  --input: hsl(20, 5.9%, 90%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(211, 100%, 99%);
+  --secondary: hsl(60, 4.8%, 95.9%);
+  --secondary-foreground: hsl(24, 9.8%, 10%);
+  --accent: hsl(60, 4.8%, 95.9%);
+  --accent-foreground: hsl(24, 9.8%, 10%);
+  --destructive: hsl(0, 84.2%, 60.2%);
+  --destructive-foreground: hsl(60, 9.1%, 97.8%);
+  --ring: hsl(20, 14.3%, 4.1%);
+  --radius: 0.5rem;
+  
+  /* Cyber theme colors */
+  --cyber-dark: hsl(216, 28%, 6%);
+  --cyber-darker: hsl(216, 28%, 10%);
+  --cyber-cyan: hsl(177, 95%, 70%);
+  --cyber-teal: hsl(175, 38%, 46%);
+  --cyber-gray: hsl(218, 11%, 78%);
+}
+
+.dark {
+  --background: hsl(216, 28%, 6%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(216, 28%, 10%);
+  --muted-foreground: hsl(240, 5%, 64.9%);
+  --popover: hsl(216, 28%, 6%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(216, 28%, 6%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(240, 3.7%, 15.9%);
+  --input: hsl(240, 3.7%, 15.9%);
+  --primary: hsl(177, 95%, 70%);
+  --primary-foreground: hsl(216, 28%, 6%);
+  --secondary: hsl(240, 3.7%, 15.9%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(240, 3.7%, 15.9%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 62.8%, 30.6%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --ring: hsl(240, 4.9%, 83.9%);
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-cyber-dark text-cyber-gray dark;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .cyber-gradient {
+    background: linear-gradient(135deg, hsl(216, 28%, 6%) 0%, hsl(216, 28%, 10%) 100%);
+  }
+  
+  .cyan-gradient {
+    background: linear-gradient(135deg, hsl(177, 95%, 70%) 0%, hsl(175, 38%, 46%) 100%);
+  }
+  
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .text-cyber-dark {
+    color: hsl(216, 28%, 6%);
+  }
+  
+  .text-cyber-darker {
+    color: hsl(216, 28%, 10%);
+  }
+  
+  .text-cyber-cyan {
+    color: hsl(177, 95%, 70%);
+  }
+  
+  .text-cyber-teal {
+    color: hsl(175, 38%, 46%);
+  }
+  
+  .text-cyber-gray {
+    color: hsl(218, 11%, 78%);
+  }
+  
+  .bg-cyber-dark {
+    background-color: hsl(216, 28%, 6%);
+  }
+  
+  .bg-cyber-darker {
+    background-color: hsl(216, 28%, 10%);
+  }
+  
+  .bg-cyber-cyan {
+    background-color: hsl(177, 95%, 70%);
+  }
+  
+  .bg-cyber-teal {
+    background-color: hsl(175, 38%, 46%);
+  }
+  
+  .bg-cyber-gray {
+    background-color: hsl(218, 11%, 78%);
+  }
+  
+  .border-cyber-cyan {
+    border-color: hsl(177, 95%, 70%);
+  }
+  
+  .border-cyber-gray {
+    border-color: hsl(218, 11%, 78%);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(102, 252, 241, 0.3); }
+  50% { box-shadow: 0 0 30px rgba(102, 252, 241, 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
