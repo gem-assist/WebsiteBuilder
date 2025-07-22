@@ -54,10 +54,9 @@ export default function Pricing() {
     }
   ];
 
-  const handlePayment = (serviceId: number) => {
-    // This will be implemented once Stripe keys are provided
-    console.log(`Payment initiated for service ${serviceId}`);
-    alert("Payment system will be available once Stripe integration is complete.");
+  const handleGetStarted = (serviceName: string) => {
+    // Redirect to contact page with service pre-selected
+    window.location.href = `/contact?service=${encodeURIComponent(serviceName)}`;
   };
 
   return (
@@ -113,14 +112,14 @@ export default function Pricing() {
                   </ul>
                   
                   <Button 
-                    onClick={() => handlePayment(service.id)}
+                    onClick={() => handleGetStarted(service.name)}
                     className={`w-full py-3 font-semibold transition-all ${
                       service.popular 
                         ? 'cyan-gradient text-cyber-dark hover:scale-105' 
                         : 'bg-transparent border-2 border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-cyber-dark'
                     }`}
                   >
-                    Get Started
+                    Contact Us
                   </Button>
                 </CardContent>
               </Card>

@@ -90,6 +90,10 @@ The application follows a monorepo structure with a clear separation between cli
 - **PostCSS**: CSS processing with Tailwind
 - **ESBuild**: Fast JavaScript bundler for server code
 
+### Communication Integration
+- **FormSubmit**: External service for contact form handling to Channel-Group@gemcybersecurityassist.com
+- **Telegram Integration**: Direct links to @gemCybersecurity_bot and community channels
+
 ## Deployment Strategy
 
 ### Development Environment

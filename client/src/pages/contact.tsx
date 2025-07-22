@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -10,7 +10,17 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [selectedService, setSelectedService] = useState("");
   const { toast } = useToast();
+
+  useEffect(() => {
+    // Check URL parameters for pre-selected service
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+    if (service) {
+      setSelectedService(service);
+    }
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +29,7 @@ export default function Contact() {
     try {
       const formData = new FormData(e.currentTarget);
       
-      const response = await fetch("https://formsubmit.co/gemfirm@gmail.com", {
+      const response = await fetch("https://formsubmit.co/Channel-Group@gemcybersecurityassist.com", {
         method: "POST",
         body: formData,
       });
@@ -75,10 +85,10 @@ export default function Contact() {
                     <div>
                       <h4 className="font-semibold text-white">Email</h4>
                       <a 
-                        href="mailto:gemfirm@gmail.com"
+                        href="mailto:Channel-Group@gemcybersecurityassist.com"
                         className="text-cyber-cyan hover:text-cyan-400 transition-colors"
                       >
-                        gemfirm@gmail.com
+                        Channel-Group@gemcybersecurityassist.com
                       </a>
                     </div>
                   </div>
@@ -156,14 +166,14 @@ export default function Contact() {
                     
                     <div className="space-y-2">
                       <Label htmlFor="service" className="text-white">Service Interest</Label>
-                      <Select name="service">
+                      <Select name="service" value={selectedService} onValueChange={setSelectedService}>
                         <SelectTrigger className="bg-cyber-dark border-cyber-gray/30 text-white focus:border-cyber-cyan">
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent className="bg-cyber-dark border-cyber-gray/30">
-                          <SelectItem value="cybersecurity">Cybersecurity Automation</SelectItem>
-                          <SelectItem value="asset-recovery">Asset Recovery</SelectItem>
-                          <SelectItem value="financial-growth">Financial Growth</SelectItem>
+                          <SelectItem value="Cybersecurity Basic">Cybersecurity Basic - $999/month</SelectItem>
+                          <SelectItem value="Asset Recovery Service">Asset Recovery Service - $2,999 one-time</SelectItem>
+                          <SelectItem value="Financial Growth Premium">Financial Growth Premium - $1,999/month</SelectItem>
                           <SelectItem value="consultation">General Consultation</SelectItem>
                         </SelectContent>
                       </Select>
