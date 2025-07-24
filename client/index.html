@@ -1,13 +1,109 @@
+# Re-running the setup after execution environment reset
+
+import os
+
+# Directory setup
+project_dir = "/mnt/data/leonard_recovery_dashboard"
+os.makedirs(project_dir, exist_ok=True)
+
+# index.html content
+index_html = """
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leonard Asset Recovery Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #0c1a2b;
+      color: #ffffff;
+      margin: 0;
+      padding: 20px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #00d4ff;
+    }
+    .section {
+      background-color: #142c45;
+      border-left: 5px solid #00d4ff;
+      padding: 15px;
+      margin-bottom: 20px;
+    }
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #aaa;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Leonard’s Asset Recovery Dashboard</h1>
+    <p>Secure Portal for KYC Verification & Recovery Progress</p>
+  </header>
+
+  <div class="section">
+    <h2>✅ KYC Verification Complete</h2>
+    <p>Your identity and documentation have been successfully verified.</p>
+  </div>
+
+  <div class="section">
+    <h2>📁 Access to Recovery Timeline</h2>
+    <p>Use your verified login to proceed to the private recovery timeline and analysis board.</p>
+  </div>
+
+  <div class="section">
+    <h2>💳 Bank Submission</h2>
+    <p>Please submit your verified account for recovered funds to be transferred. Contact GEM Support if needed.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 GEM Cyber Monitoring Assist – Secure Recovery Interface</p>
+  </footer>
+
+</body>
 </html>
+"""
+
+# Flask app (app.py)
+app_py = """
+from flask import Flask, send_file
+
+app = Flask(__name__)
+
+@app.route('/')
+def dashboard():
+    return send_file('index.html')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=3000)
+"""
+
+# requirements.txt
+requirements_txt = "flask"
+
+# .replit configuration
+replit_config = "run = \"python3 app.py\""
+
+# Write files
+with open(os.path.join(project_dir, "index.html"), "w") as f:
+    f.write(index_html)
+
+with open(os.path.join(project_dir, "app.py"), "w") as f:
+    f.write(app_py)
+
+with open(os.path.join(project_dir, "requirements.txt"), "w") as f:
+    f.write(requirements_txt)
+
+with open(os.path.join(project_dir, ".replit"), "w") as f:
+    f.write(replit_config)
+
+project_dir
